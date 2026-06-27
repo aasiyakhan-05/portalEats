@@ -199,12 +199,7 @@ function RegisterPage({ setCurrentPage }) {
           </button>
         </form>
 
-        <p className="auth-link">
-          Already have an account?{' '}
-          <a onClick={() => setCurrentPage('login')}>
-            Login here
-          </a>
-        </p>
+        <a href="#" className="link">Already have an account? Login</a>
       </div>
     </div>
   );

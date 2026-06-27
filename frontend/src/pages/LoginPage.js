@@ -93,12 +93,7 @@ function LoginPage({ setCurrentPage }) {
           </button>
         </form>
 
-        <p className="auth-link">
-          Don't have an account?{' '}
-          <a onClick={() => setCurrentPage('register')}>
-            Register here
-          </a>
-        </p>
+        <a href="#" className="link">Don't have an account? Register</a>
 
       
       </div>

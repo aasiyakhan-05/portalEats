@@ -10,7 +10,7 @@ function OrderTrackingPage({ orderId, setCurrentPage }) {
     // Poll for updates every 10 seconds
     const interval = setInterval(fetchOrderDetails, 10000);
     return () => clearInterval(interval);
-  }, [orderId]);
+  }, []);
 
   const fetchOrderDetails = async () => {
     try {
