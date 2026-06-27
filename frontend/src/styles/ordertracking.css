@@ -1,0 +1,295 @@
+.tracking-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 60vh;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #2c1810;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* HEADER */
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #d4751e, #c41e3a);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.tracking-header h1 {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+}
+
+.order-status {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.status-active {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.eta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  border-radius: 8px;
+}
+
+.eta-icon {
+  font-size: 1.5rem;
+}
+
+.eta-time {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* CONTENT LAYOUT */
+.tracking-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+}
+
+/* TIMELINE */
+.tracking-timeline-section h2 {
+  color: #2c1810;
+  margin-bottom: 25px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 20px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.timeline-step.completed {
+  opacity: 1;
+}
+
+.timeline-marker {
+  position: relative;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.marker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #fef5e7;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: 3px solid #d4751e;
+}
+
+.timeline-step.completed .marker-icon {
+  background-color: #d4751e;
+  border-color: #d4751e;
+}
+
+.timeline-step:not(:last-child) .marker-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 3px;
+  height: 50px;
+  background-color: #d4751e;
+  transform: translateX(-50%);
+}
+
+.timeline-step:not(.completed):not(:last-child) .marker-icon::after {
+  background-color: #f0f0f0;
+}
+
+.timeline-content h3 {
+  color: #2c1810;
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.timeline-content p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: #2c1810;
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+}
+
+/* RIDER CARD */
+.rider-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.rider-avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #fef5e7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.rider-details p {
+  margin: 5px 0;
+  color: #2c1810;
+}
+
+.rider-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.rider-rating,
+.rider-phone {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.contact-btn,
+.map-btn,
+.help-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #d4751e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.help-btn {
+  margin-bottom: 10px;
+}
+
+.contact-btn:hover,
+.map-btn:hover,
+.help-btn:hover {
+  background-color: #a85a17;
+  transform: translateY(-2px);
+}
+
+/* ADDRESS CARD */
+.address-text {
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+}
+
+/* SUMMARY CARD */
+.order-items {
+  margin-bottom: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.summary-divider {
+  height: 2px;
+  background-color: #f0f0f0;
+  margin: 15px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #d4751e;
+  font-size: 1.1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .tracking-content {
+    grid-template-columns: 1fr;
+  }
+
+  .tracking-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .tracking-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .eta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .timeline {
+    gap: 15px;
+  }
+
+  .marker-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
