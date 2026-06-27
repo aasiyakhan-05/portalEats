@@ -2,73 +2,44 @@ import React, { useState } from 'react';
 import { loginUser } from '../services/authService';
 import '../styles/authpage.css';
 
-function LoginPage({ setCurrentPage }) {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+function LoginPage({ setCurrentPage, setIsAuthenticated }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
-    setMessage('');
+    setLoading(true);
 
-    const { email, password } = formData;
-
-    // Validation
-    if (!email || !password) {
-      setError('Email and password are required');
+    try {
+      await loginUser(email, password);
+      setIsAuthenticated(true);
+      setCurrentPage('home');
+    } catch (err) {
+      setError(err.message || 'Login failed');
+    } finally {
       setLoading(false);
-      return;
     }
-
-    // Login
-    const result = await loginUser(email, password);
-
-    if (result.success) {
-      setMessage('✅ Login successful! Redirecting...');
-      setTimeout(() => {
-        setCurrentPage('home');
-      }, 1500);
-    } else {
-      setError(result.message || 'Login failed');
-    }
-
-    setLoading(false);
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-title">Welcome Back</h1>
-        <p className="auth-subtitle">Login to your account</p>
+        <h1>Login</h1>
+        <p>Welcome back to PortalEats</p>
 
         {error && <div className="error-message">{error}</div>}
-        {message && <div className="success-message">{message}</div>}
 
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label>Email Address</label>
+            <label>Email</label>
             <input
               type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              className="form-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -76,26 +47,25 @@ function LoginPage({ setCurrentPage }) {
             <label>Password</label>
             <input
               type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-              className="form-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
-          <button 
-            type="submit" 
-            className="auth-btn"
-            disabled={loading}
-          >
+          <button type="submit" disabled={loading}>
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
-        <a href="#" className="link">Don't have an account? Register</a>
-
-      
+        <div className="auth-footer">
+          <p>
+            Don't have an account?{' '}
+            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('register'); }}>
+              Register here
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
