@@ -6,16 +6,16 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h4>Al Busthan Kababi</h4>
+          <h4>Portal Eats</h4>
           <p>🍖 Authentic Persian Kabab</p>
-          <p>Experience the finest grilled kababs in Abu Dhabi</p>
+          <p>Experience the finest grilled kababs</p>
         </div>
 
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>📍 Al Tarkhees St, Madinat Al Riyad, Abu Dhabi</p>
-          <p>📞 02 546 6229</p>
-          <p>✉️ info@albusthan.com</p>
+          <p>📍 xyz </p>
+          <p>📞 000-000-0000</p>
+          <p>✉️ info@portaleats.com</p>
         </div>
 
         <div className="footer-section">
@@ -31,7 +31,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2024 Al Busthan Kababi. All rights reserved.</p>
+        <p>© 2024 Portal Eats. All rights reserved.</p>
       </div>
     </footer>
   );
